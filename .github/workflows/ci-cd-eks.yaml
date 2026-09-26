@@ -190,7 +190,7 @@ jobs:
 
       - name: Helm lint
         run: |
-          helm lint ./helm/web-app
+          helm lint ./helm
 
       # --------------------------------------------------------
       # Helm template
@@ -199,7 +199,7 @@ jobs:
       - name: Helm template
         run: |
           helm template web-app \
-            ./helm/web-app \
+            ./helm \
             --namespace "${K8S_NAMESPACE}" \
             --set image.tag="${GITHUB_SHA}"
 
@@ -210,7 +210,7 @@ jobs:
       - name: Helm upgrade
         run: |
           helm upgrade --install web-app \
-            ./helm/web-app \
+            ./helm \
             --namespace "${K8S_NAMESPACE}" \
             --create-namespace \
             --set image.tag="${GITHUB_SHA}" \
