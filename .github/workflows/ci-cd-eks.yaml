@@ -212,7 +212,6 @@ jobs:
           helm upgrade --install web-app \
             ./helm \
             --namespace "${K8S_NAMESPACE}" \
-            --create-namespace \
             --set image.tag="${GITHUB_SHA}" \
             --wait \
             --timeout 5m
