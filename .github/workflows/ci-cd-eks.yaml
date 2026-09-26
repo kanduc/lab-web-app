@@ -38,7 +38,7 @@ jobs:
       - name: Build web-app
         working-directory: .
         run: |
-          npm ci
+          npm install
           npm run build
 
       # - name: SonarQube Scan
