@@ -36,7 +36,7 @@ jobs:
           node-version: '22'
 
       - name: Build web-app
-        working-directory: web-app
+        working-directory: .
         run: |
           npm ci
           npm run build
