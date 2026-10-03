@@ -135,6 +135,15 @@ jobs:
     environment:
       name: lab
 
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - component: web-app
+            release: web-app
+            chart: ./helm/web-app
+            ecr_repository: ${{ vars.WEB_ECR_REPOSITORY }}
+            deployment: web-app
     steps:
 
       - name: Checkout
